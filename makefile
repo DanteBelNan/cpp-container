@@ -8,7 +8,7 @@ start:
 	docker run -it --name $(IMAGE_NAME) -v $(PERSISTENT_VOLUME_DIR):/app $(IMAGE_NAME) bash -c "source compile.sh; export -f compile; bash"
 
 up:
-	docker start $(IMAGE_NAME) && docker exec -it $(IMAGE_NAME) bash -c "source compile.sh; bash"
+	docker start $(IMAGE_NAME) && docker exec -it $(IMAGE_NAME) bash -c "source compile.sh; export -f compile; bash"
 
 down:
 	docker stop $(IMAGE_NAME)
